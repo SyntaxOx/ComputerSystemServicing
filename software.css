@@ -1,0 +1,426 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  touch-action: pan-y;
+  background-color: #1f2833;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: red;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* == Chain Wheel == */
+div.sticky .chain1 {
+  position: fixed;
+}
+
+div.sticky .chain2 {
+  position: fixed;
+}
+
+div.sticky .chain3 {
+  position: fixed;
+}
+
+.chain1 {
+  position: absolute;
+  bottom: -200px;
+  left: -200px;
+  color: #1b232d;
+  z-index: -1;
+  width: 650px;
+  animation: chain1 50s infinite;
+}
+
+@keyframes chain1 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.chain2 {
+  position: absolute;
+  width: 250px;
+  top: -100px;
+  left: 200px;
+  color: #1b232d;
+  z-index: -1;
+  animation: chain2 50s infinite;
+}
+
+@keyframes chain2 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.chain3 {
+  position: absolute;
+  width: 700px;
+  top: 50px;
+  right: -00px;
+  z-index: -1;
+  color: #1b232d;
+  animation: chain1 50s infinite;
+}
+
+/* == Navbar == */
+.navbar {
+  user-select: none;
+  padding: 35px 130px 0px 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Rajdhani", sans-serif;
+}
+
+.logo {
+  margin-left: 30px;
+  width: 80px;
+  height: 80px;
+  border-radius: 100px;
+}
+
+li {
+  margin: 0px 0px 0px 100px;
+  display: inline;
+}
+
+li a {
+  letter-spacing: 2px;
+  text-decoration: none;
+ 
+  color: #45a29e;
+  font-size: 25px;
+}
+
+li a.soft {
+  color: #66fcf1;
+  text-shadow: 0px 0px 20px;
+}
+
+a:hover {
+  color: #66fcf1;
+  text-shadow: 0px 0px 20px;
+}
+
+.toggle_btn {
+  display: none;
+  color: #45a29e;
+  width: 50px;
+}
+
+/* == Hidden/ Out in Responsive == */
+.dropdown_menu {
+  display: none;
+  position: absolute;
+  right: 10px;
+  top: 100px;
+  height: 0;
+  width: 300px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.dropdown_menu.open {
+  height: 270px;
+}
+
+.dropdown_menu li {
+  padding: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.dropdown_menu .action {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* == FAQ == */
+section {
+  min-height: 1000px;
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  color: #ffff;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: lighter;
+  font-size: 20px;
+}
+
+.faq {
+  max-width: 7000px;
+  margin-top: 100px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #66FCF1;
+  cursor: pointer;
+}
+
+.question {
+  user-select: none;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.question::after {
+  content: "\25BE";
+  font-size: 30px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.question.active {
+  color: #66fcf1;
+  text-shadow: 0px 0px 20px;
+}
+
+.question:hover {
+  color: #66fcf1;
+  text-shadow: 0px 0px 20px;
+}
+
+.question.active::after {
+  transform: rotate(-180deg);
+}
+
+.question h3 {
+  font-size: 30px;
+}
+
+.answer {
+  transition: max-height 0.5s ease-out;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.answer p {
+  text-align: justify;
+  padding-top: 16px;
+  line-height: 1.6;
+}
+
+.faq.active .answer {
+  max-height: 300px;
+}
+
+/* == Flowcharting == */
+.terminologies, .symbols, .PL, .operators, .AP {
+  display: inline-block;
+  color:#66FCF1;
+  text-decoration: underline;
+}
+
+.answer .head {
+  font-size: 25px;
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+
+.list {
+  list-style: none; /* Remove default bullets */
+  display: flex;
+}
+
+.list::before {
+  content: "\25AA"; 
+  color: #66fcf1;
+  display: inline-block; 
+  font-size: 20px;
+  width: 15px;
+}
+
+.img {
+  user-select: none;
+  display: flex;
+  width: 100px;
+  height: 50px;
+}
+
+/* == 1200 == */
+@media (max-width: 1200px) {
+  /* == Chain == */
+  .chain1 {
+    width: 550px;
+  }
+
+  .chain3 {
+    width: 450px;
+  }
+
+  /* == Navbar == */
+  .logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  li {
+    margin: 0px 0px 0px 80px;
+  }
+}
+
+/* == 1130 == */
+@media (max-width: 1130px) {
+  /* == Chain == */
+  .chain1 {
+    width: 500px;
+  }
+
+  .chain2 {
+    width: 200px;
+    left: 100px;
+  }
+
+  .chain3 {
+    width: 450px;
+    right: 25px;
+  }
+
+  /* == Navbar == */
+  .navbar .links {
+    display: none;
+  }
+
+  .logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .navbar .toggle_btn {
+    display: block;
+  }
+
+  .dropdown_menu {
+    display: block;
+  }
+}
+
+/* == 800 == */
+@media (max-width: 800px) {
+  /* == Chain == */
+  .chain2 {
+    width: 150px;
+    top: 0px;
+  }
+
+  .chain3 {
+    width: 350px;
+  } 
+
+  /* == Navbar == */
+  .navbar {
+    padding: 35px 80px 0px 90px;
+  }
+
+  .logo {
+    margin-left: -20px;
+  }
+
+  /* == Title == */
+  #title {
+    font-size: 370px;
+  }
+
+  #subtitle {
+    margin-top: -100px;
+    font-size: 40px;
+  }
+}
+
+/* == 650 == */
+@media (max-width: 650px) {
+  /* == Chain == */
+  .chain2 {
+    display: none;
+  }
+}
+
+/* == 500 == */
+@media (max-width: 500px) {
+  /* == Chain == */
+  .chain1 {
+    width: 300px;
+    bottom: -10px;
+    left: 0px;
+  }
+
+  .chain3 {
+    width: 250px;
+  }
+
+  /* == Navbar == */
+  .navbar {
+    padding: 35px 25px 0px 90px;
+  }
+
+  .logo {
+    margin-left: -40px;
+  }
+}
+
+/* == 400 == */
+@media (max-width: 400px) {
+  /* == Navbar == */
+  .navbar {
+    padding: 35px 25px 0px 90px;
+  }
+
+  .logo {
+    margin-left: -40px;
+  }
+
+  .toggle_btn {
+    width: 50px;
+  }
+
+  .logo {
+    width: 50px;
+    height: 50px;
+    margin-left: -60px;
+  }
+}
+
+/* == 300 == */
+@media (max-width: 300px) {
+  /* == Navbar == */
+  .navbar {
+    padding: 35px 25px 0px 90px;
+  }
+
+  .toggle_btn {
+    width: 40px;
+  }
+
+  .logo {
+    width: 40px;
+    height: 40px;
+    margin-left: -60px;
+  }
+}
